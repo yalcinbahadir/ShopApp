@@ -1,0 +1,31 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="navbar-brand d-flex justify-content-between w-100">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="nav-item nav-link" asp-controller="Product" asp-action="ProductList">Products</a>
+            
+            <a class="nav-item nav-link disabled" href="#"></a>
+        </div>
+        <div class="navbar-nav">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.IsInRole("admin"))
+                {
+                    <a class="nav-item nav-link" asp-controller="Admin" asp-action="GetProducts">ManageProducts</a>
+                    <a class="nav-item nav-link" asp-controller="Admin" asp-action="ManageRoles">ManageRoles</a>
+                }
+                <a class="nav-item nav-link active disabled" asp-controller="Account" asp-action="Login">@User.Identity.Name</a>
+                <a class="nav-item nav-link active" asp-controller="Account" asp-action="Logout">Logout</a>
+
+            }
+            else
+            {
+                <a class="nav-item nav-link active" asp-controller="Account" asp-action="Register">Register</a>
+                <a class="nav-item nav-link active" asp-controller="Account" asp-action="Login">Login</a>
+
+            }
+
+        </div>
+    </div>
+</nav>

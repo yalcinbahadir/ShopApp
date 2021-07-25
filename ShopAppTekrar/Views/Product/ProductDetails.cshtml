@@ -1,0 +1,24 @@
+﻿@model Product
+@{ 
+    var product = Model;
+}
+    <div class="container">
+        <div class="card mb-3 mt-1 p-2" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4 d-flex align-items-center">
+                    <img src="/img/@product.ImgUrl" class="card-img" alt="..." >
+                </div>
+                <div class="col-md-8 p-2">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Description</p>
+                        <p class="card-text">@product.Price - €</p>
+                    </div>
+                    <div class="p-2">
+                        <a class="btn btn-primary" asp-controller="home" asp-action="index">Back</a>
+                        <a class="btn btn-primary" href="#">Add to card</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

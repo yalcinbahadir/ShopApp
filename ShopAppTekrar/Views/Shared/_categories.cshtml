@@ -1,0 +1,18 @@
+﻿@{ 
+    var categories = new ShopApp.DataAccess.Concrete.ShopContext().Categories;
+}
+
+    <ul class="list-group">
+        <li class="list-group-item"><a 
+                                       asp-controller="product"
+                                       asp-action="ProductListByCategory" 
+                                       >All Categories</a></li>
+        @foreach (var category in categories)
+        {
+            <li class="list-group-item"><a asp-controller="product" 
+                                           asp-action="ProductListByCategory" 
+                                           asp-route-categoryId="@category.Id">
+                                            @category.Name</a>
+            </li>
+        }
+    </ul>

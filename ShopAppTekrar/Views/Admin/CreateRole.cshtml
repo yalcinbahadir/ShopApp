@@ -1,0 +1,16 @@
+﻿@model RoleModel
+
+<h3 class="h3">Create rol page</h3>
+<hr />
+<div class="col-md-10">
+    <form asp-controller="admin" asp-action="createRole" method="post">
+    
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Add role</button>
+    </form>
+</div>

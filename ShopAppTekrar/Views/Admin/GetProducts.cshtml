@@ -1,0 +1,48 @@
+﻿@model ProductListModel;
+@{
+    Layout = "_LayoutAdmin";
+    var products = Model.Products;
+}
+
+
+    <a class="btn btn-primary m-2" asp-controller="admin" asp-action="addProduct">Add Product</a>
+    <table class="table table-hover" id="productTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th style="width:120px">Name</th>
+                <th>Price</th>
+                <th style="width:260px">Description</th>
+                <th>IsHome</th>
+                <th>IsApproved</th>
+                <th>
+
+                </th>
+
+            </tr>
+        </thead> 
+        <tbody>
+            @foreach (var product in products)
+            {
+            <tr>
+                <td>@product.Id</td>
+                <td>
+                    <img src="/img/@product.ImgUrl" alt="Alternate Text" width="80" />
+                </td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td style="vertical-align:middle">@product.Description</td>
+                <td>@product.IsHome</td>
+                <td>@product.IsApproved</td>
+                <td>
+                    <a asp-controller="admin" asp-action="UpdateProduct" asp-route-id="@product.Id"  class="btn btn-primary btn-sm">Update</a>
+                    <a asp-controller="admin" asp-action="DeleteProduct" asp-route-id="@product.Id" class="btn btn-danger btn-sm m-1">Delete</a>
+                </td>
+            </tr>
+            
+            }
+        </tbody>
+
+    </table>
+

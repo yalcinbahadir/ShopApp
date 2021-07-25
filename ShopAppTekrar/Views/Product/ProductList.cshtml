@@ -1,0 +1,23 @@
+﻿@model ProductCategoryModel
+@{ 
+    Layout = "_Layout";
+    var products = Model.Products;
+}
+
+
+    <div class="row">
+        @if (products.Count > 0)
+        {
+            @foreach (var product in products)
+            {
+                @await Html.PartialAsync("_product", product)
+            }
+        }
+        else
+        {
+            <h3 class="text-danger">No products found.</h3>
+        }
+
+    </div>
+
+

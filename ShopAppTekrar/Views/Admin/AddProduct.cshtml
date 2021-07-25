@@ -1,0 +1,49 @@
+﻿@model ProductModel
+@{ 
+    var product = Model;
+}
+
+<h3 class="h3">Add product</h3>
+<hr />
+
+<form asp-controller="admin" asp-action="addProduct" method="post">
+    <input type="hidden" asp-for="@product.Id" value="0" />
+    <div class="text-danger" asp-validation-summary="All">
+       
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control">
+        <span class="text-danger" asp-validation-for="@product.Price"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImgUrl"></label>
+        <input asp-for="ImgUrl" class="form-control">
+        <span class="text-danger" asp-validation-for="ImgUrl"></span>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" asp-for="IsApproved">
+        <label class="form-check-label" asp-for="IsApproved"></label>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" asp-for="IsHome">
+        <label class="form-check-label" asp-for="IsHome"></label>
+    </div>
+    <div class="form-group">
+        @*<label asp-for="CategoryId"></label>
+        <input asp-for="CategoryId" type="number" min="1" class="form-control">
+        <span class="text-danger" asp-validation-for="CategoryId"></span>*@
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>

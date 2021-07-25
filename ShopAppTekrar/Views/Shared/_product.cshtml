@@ -1,0 +1,14 @@
+﻿@model Product
+@{
+  var product=Model;
+}
+
+
+<div class="card p-1 m-1" style="width: 30%; ">
+    <img src="/img/@product.ImgUrl" class="card-img-top" alt="..." width="100" height="200">
+    <div class="card-body">
+        <h5 class="card-title">@product.Name</h5>
+        <p class="card-text">@product.Description</p>
+        <a asp-controller="product" asp-action="productDetails" asp-route-id="@product.Id" class="btn btn-primary">Details</a>
+    </div>
+</div>

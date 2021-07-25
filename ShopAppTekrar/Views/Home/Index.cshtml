@@ -1,0 +1,21 @@
+﻿@model ProductCategoryModel
+@{
+    Layout = "_LayoutAdmin";
+    var products = Model.Products;
+}
+
+
+<div class="row ml-0 d-flex justify-content-between  pr-4 ">
+    @if (products.Count > 0)
+    {
+        @foreach (var product in products)
+        {
+            @await Html.PartialAsync("_product", product)
+        }
+    }
+    else
+    {
+        <h3 class="text-danger">No products found.</h3>
+    }
+
+</div>
